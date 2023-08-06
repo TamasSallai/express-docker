@@ -7,7 +7,7 @@ const {
   MONGO_PORT,
   PORT,
 } = require("../config/config")
-const postRouter = require("../modules/post/post.router")
+const postRouter = require("./modules/post/post.router")
 
 const app = express()
 
