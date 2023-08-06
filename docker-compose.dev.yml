@@ -5,13 +5,19 @@ services:
     build:
       context: .
       args:
-        NODE_ENV: development
+        - NODE_ENV=development
+
     volumes:
       - ./src:/app/src
       - /app/node_modules
-    ports:
-      - "3000:3000"
     environment:
-      - PORT=3000
       - NODE_ENV=development
+      - MONGO_USER=tamas
+      - MONGO_PASSWORD=mypassword
+
     command: npm run dev
+
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tamas
+      MONGO_INITDB_ROOT_PASSWORD: mypassword
